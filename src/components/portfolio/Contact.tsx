@@ -7,7 +7,7 @@ import { Section, SectionHeader } from "./Section";
 import { externalClickHandler } from "@/lib/open-external";
 
 const SERVICE_ID = "service_xq23pxw";
-const TEMPLATE_ID = "template_x5i2bss";
+const TEMPLATE_ID = "template_muvwuc9";
 const PUBLIC_KEY = "JmLB7Sjb9jDbtEB-K";
 
 export function Contact() {
