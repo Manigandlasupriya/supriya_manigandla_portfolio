@@ -1,0 +1,189 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-electric: var(--electric);
+  --color-violet-glow: var(--violet-glow);
+  --color-teal-glow: var(--teal-glow);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.13 0.04 265);
+  --foreground: oklch(0.97 0.01 260);
+  --card: oklch(0.18 0.04 265 / 0.55);
+  --card-foreground: oklch(0.97 0.01 260);
+  --popover: oklch(0.18 0.04 265);
+  --popover-foreground: oklch(0.97 0.01 260);
+  --primary: oklch(0.72 0.19 255);
+  --primary-foreground: oklch(0.13 0.04 265);
+  --secondary: oklch(0.24 0.05 275);
+  --secondary-foreground: oklch(0.97 0.01 260);
+  --muted: oklch(0.22 0.04 265);
+  --muted-foreground: oklch(0.72 0.03 260);
+  --accent: oklch(0.68 0.22 305);
+  --accent-foreground: oklch(0.13 0.04 265);
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.97 0.01 260);
+  --border: oklch(1 0 0 / 0.12);
+  --input: oklch(1 0 0 / 0.14);
+  --ring: oklch(0.72 0.19 255);
+  --electric: oklch(0.72 0.19 255);
+  --violet-glow: oklch(0.68 0.22 305);
+  --teal-glow: oklch(0.78 0.16 195);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 0%, oklch(0.72 0.19 255 / 0.18), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 90% 30%, oklch(0.68 0.22 305 / 0.15), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, oklch(0.78 0.16 195 / 0.12), transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--background) 55%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--color-border);
+}
+
+@utility glass-strong {
+  background: color-mix(in oklab, var(--background) 75%, transparent);
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--color-border);
+}
+
+@utility gradient-text {
+  background: linear-gradient(135deg, var(--electric) 0%, var(--violet-glow) 50%, var(--teal-glow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-border {
+  position: relative;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, var(--electric), var(--violet-glow), var(--teal-glow)) border-box;
+  border: 1px solid transparent;
+}
+
+@utility glow-electric {
+  box-shadow: 0 0 40px -8px oklch(0.72 0.19 255 / 0.55), 0 0 12px -2px oklch(0.72 0.19 255 / 0.4);
+}
+
+/* ---- Premium hover micro-interactions ---- */
+@utility lift {
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 320ms;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -20px oklch(0.55 0.2 285 / 0.5);
+  }
+}
+
+@utility shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, oklch(1 0 0 / 0.14) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.shine:hover::before { transform: translateX(120%); }
+
+@utility magnetic {
+  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes float-y { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+@keyframes gradient-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes reveal-up {
+  0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.animate-float { animation: float-y 6s ease-in-out infinite; }
+.animate-gradient { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
+.caret::after { content: "|"; margin-left: 2px; animation: blink 1s step-end infinite; color: var(--electric); }
+
+/* Custom cursor host — hide native cursor on fine pointers */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  a, button, [role="button"], input, textarea, label, [data-cursor] { cursor: none; }
+}
+
+/* Elements tagged with data-cursor="magnet" get a subtle scale on hover */
+[data-cursor="magnet"] { transition: transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+[data-cursor="magnet"]:hover { transform: translateY(-2px) scale(1.015); }
+
+::selection { background: oklch(0.72 0.19 255 / 0.35); color: white; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: oklch(0.13 0.04 265); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--electric), var(--violet-glow)); border-radius: 999px; }
+
+/* Reduced-motion mode: honor user OS preference.
+   Neutralizes CSS animations/transitions, hover translations, shine sweep,
+   and hides the custom cursor overlays. Framer Motion components read the
+   same media query via usePrefersReducedMotion / useReducedMotion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+  body { cursor: auto !important; }
+  a, button, [role="button"], input, textarea, label, [data-cursor] { cursor: auto !important; }
+  [data-cursor="magnet"]:hover { transform: none !important; }
+  .shine::before { display: none !important; }
+  .lift:hover { transform: none !important; box-shadow: none !important; }
+  .animate-float, .animate-gradient { animation: none !important; }
+  .caret::after { animation: none !important; }
+}
+
