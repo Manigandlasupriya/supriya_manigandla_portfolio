@@ -201,7 +201,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.25 }}
-          className="relative h-[540px] hidden lg:block"
+          className="relative h-[420px] sm:h-[480px] lg:h-[540px] block mt-10 lg:mt-0"
         >
           {/* Background glass cards */}
           <motion.div
