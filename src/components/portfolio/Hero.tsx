@@ -35,7 +35,7 @@ function useTypewriter(words: string[], speed = 70, pause = 1400) {
 const SYNE = { fontFamily: "'Syne', 'Space Grotesk', sans-serif" };
 
 export function Hero() {
-  const typed = useTypewriter(["Welcome to my portfolio"]);
+  const typed = useTypewriter([PROFILE.role]);
   const reducedMotion = usePrefersReducedMotion();
   const [showScene, setShowScene] = useState(false);
   useEffect(() => {
