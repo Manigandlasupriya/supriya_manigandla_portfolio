@@ -5,11 +5,13 @@ import { PROJECTS, PROJECT_CATEGORIES, type ProjectCategory } from "./data";
 import { Section, SectionHeader } from "./Section";
 import { ProjectModal } from "./ProjectModal";
 import { externalClickHandler } from "@/lib/open-external";
+import retrivanaImg from "@/assets/project-retrivana.jpg";
 import careernovaImg from "@/assets/project-careernova.jpg";
 import codemasteryImg from "@/assets/project-codemastery.jpg";
 import medicineImg from "@/assets/project-medicine.jpg";
 
 const IMAGE_MAP: Record<string, string> = {
+  "Retrivana": retrivanaImg,
   "CareerNova AI": careernovaImg,
   "AI Code Mastery Hub": codemasteryImg,
   "Medicine Identification for the Blind": medicineImg,
@@ -53,7 +55,7 @@ export function Projects() {
       <SectionHeader
         eyebrow="Selected work"
         title="Key Projects"
-        description="Click a card to open a detailed view with the tech stack, story, and links."
+        description="Click a card to open a detailed view with the tech stack, story, demo, and links."
       />
 
       {/* Filter + Search */}

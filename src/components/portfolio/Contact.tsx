@@ -44,7 +44,7 @@ export function Contact() {
         <SectionHeader
           eyebrow="Let's connect"
           title="Get in touch"
-          description="Open to full-stack, Python, and AI engineering roles — and interesting collaborations."
+          description="Open to Python full-stack and Generative AI engineering roles — and interesting collaborations."
         />
         <div className="grid lg:grid-cols-5 gap-6">
           <motion.div

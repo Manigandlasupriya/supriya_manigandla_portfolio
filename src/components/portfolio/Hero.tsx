@@ -223,7 +223,7 @@ export function Hero() {
             animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-16 left-4 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md px-3 py-2 text-[11px] text-white/80"
           >
-            <span className="text-white/50 mr-2">uptime</span>99.9%
+            <span className="text-white/50 mr-2">tested with</span>50+ users
           </motion.div>
 
           <motion.div
@@ -239,7 +239,7 @@ export function Hero() {
             animate={{ y: [0, 8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute bottom-24 left-0 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md px-3 py-2 text-[11px] text-white/80"
           >
-            <span className="text-white/50 mr-2">shipped</span>5+projects
+            <span className="text-white/50 mr-2">built</span>4 AI projects
           </motion.div>
 
           {/* Main glass card with mascot */}

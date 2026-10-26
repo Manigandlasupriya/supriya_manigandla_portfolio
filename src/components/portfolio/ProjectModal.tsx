@@ -115,6 +115,25 @@ export function ProjectModal({
                 </div>
               </motion.div>
 
+              {/* Demo video */}
+              {project.demo && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
+                >
+                  <div className="text-xs uppercase tracking-[0.3em] text-primary/80 mb-3">Demo video</div>
+                  <video
+                    src={project.demo}
+                    poster={project.poster}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    aria-label={`${project.title} demo video`}
+                    className="w-full aspect-video rounded-xl border border-white/10 bg-black"
+                  />
+                </motion.div>
+              )}
+
               {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}

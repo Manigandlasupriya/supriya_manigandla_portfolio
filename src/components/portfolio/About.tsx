@@ -4,8 +4,8 @@ import { PROFILE } from "./data";
 import { Section, SectionHeader } from "./Section";
 
 const stats = [
-  { icon: Rocket, label: "Production apps shipped", value: "10+" },
-  { icon: Brain, label: "AI projects built", value: "5+" },
+  { icon: Rocket, label: "Key projects built", value: "4" },
+  { icon: Brain, label: "Users tested with", value: "50+" },
   { icon: Sparkles, label: "CGPA", value: "8.55" },
 ];
 
